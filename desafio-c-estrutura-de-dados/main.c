@@ -1,28 +1,15 @@
-#include <stdio.h>
-#include <string.h>
-#include "modelo.h"
+#include <stdio.h>	// entrada e saída padrão: printf, scanf
+#include <stdlib.h>	// exit, malloc, system
+
+/*Bibliotecas incluídas*/
+#include "modelo.h"	//modelo de dados
+#include "incluir_dados.h"	//função que recebe os dados do usuário
+#include "ordena_lista.h"	//função que ordena a lista
 
 int main() {
-    int x = 10;
-    int *ponteiro;
-    ponteiro = &x;  //ponteiro recebe o endereÃ§o de memÃ³ria do x
-    *ponteiro = 20; //valor de onde o ponteiro aponta recebe 20, alterando o valor de x
-
-    printf("EndereÃ§o de memÃ³ria do x: %p\n", &x); //print memory address of x
-    printf("Valor do x: %i\n", x); //print value of x
-
-    printf("Valor de onde o ponteiro aponta: %d\n", *ponteiro);   //mostra o valor para onde o ponteiro aponta
-    printf("EndereÃ§o de memÃ³ria do ponteiro: %p\n", ponteiro);  //mostra o endereÃ§o de memÃ³ria do ponteiro
-
-    INFORMACAO info;
-    stpcpy(info.cor, "Vermelho");
-    stpcpy(info.nome_dono, "Giovane");
-    stpcpy(info.tamanho, "p");
-
-    printf("%s\n", info.tamanho);
-    printf("%s\n", info.nome_dono);
-    printf("%s\n", info.cor);
-
+    NODO lista; //variável do tipo NODO
+    
+    incluir(&lista);	//passa o endereço na memória, da variável lista (passa um ponteiro) para a função
 
     return 0;
 }

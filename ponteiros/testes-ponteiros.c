@@ -5,6 +5,27 @@ void mudarValor(int variavel){
 }
 
 int main(){
+	int x = 10;
+    int *ponteiro;
+    ponteiro = &x;  //ponteiro recebe o endereço de memória do x
+    *ponteiro = 20; //valor de onde o ponteiro aponta recebe 20, alterando o valor de x
+
+    printf("Endereco de memoria do x: %p\n", &x); //print memory address of x
+    printf("Valor do x: %i\n", x); //print value of x
+
+    printf("Valor de onde o ponteiro aponta: %d\n", *ponteiro);   //mostra o valor para onde o ponteiro aponta
+    printf("Endereco de memoria do ponteiro: %p\n", ponteiro);  //mostra o endereço de memória do ponteiro
+
+    INFORMACAO info;
+    
+    strcpy(info.cor, "Vermelho");
+    strcpy(info.nome_dono, "Giovane");
+    strcpy(info.tamanho, "p");
+
+    printf("%s\n", info.tamanho);
+    printf("%s\n", info.nome_dono);
+    printf("%s\n", info.cor);
+    
 	struct horario{
 		int hora;
 		int minuto;
