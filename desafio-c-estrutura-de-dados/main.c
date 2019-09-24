@@ -1,15 +1,36 @@
-#include <stdio.h>	// entrada e saída padrão: printf, scanf
-#include <stdlib.h>	// exit, malloc, system
+#include <stdio.h>
+#include <stdlib.h>
+#include "modelo.h"
+#include "incluir_dados.h"
+#include "ordena_lista.h"
 
-/*Bibliotecas incluídas*/
-#include "modelo.h"	//modelo de dados
-#include "incluir_dados.h"	//função que recebe os dados do usuário
-#include "ordena_lista.h"	//função que ordena a lista
+void limpaLista(LISTAENC **lista);
 
 int main() {
-    NODO lista; //variável do tipo NODO
-    
-    incluir(&lista);	//passa o endereço na memória, da variável lista (passa um ponteiro) para a função
+    LISTAENC *lista = NULL;
+    int quantidadeRegistros = 0;    //vai receber a quantidade de registros
+
+    do {
+        fflush(stdin);  //limpa buffer
+        scanf("%d", &quantidadeRegistros);  //le o numero de registros a serem incluidos
+
+        int i;
+        for (i = 0; i < quantidadeRegistros; ++i) { //executa o registro conforme  quantidade informada pelo usuario
+            incluir(&lista);    //executa rotina para incluir na lista
+        }
+        ordenar(lista); //executa rotina para ordenar a lista
+        limpaLista(&lista);   //lista recebe mull para limpar os registros
+    } while (quantidadeRegistros > 0 &&
+             quantidadeRegistros <= 60); //executa a quantidade de vezes informada pelo usuario
 
     return 0;
+}
+
+void limpaLista(LISTAENC **lista) {
+    LISTAENC *aux = *lista;
+    while (aux != NULL) {      // ponteiro auxiliar para percorrer a lista
+        *lista = aux->prox;     // aponta para o próximo registro da lista
+        free(aux);        // libera memória
+        aux = *lista;           // reposiciona ponteiro auxiliar no início
+    } // fim if( aux == NULL )
 }
