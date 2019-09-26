@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "modelo.h"
 #include "incluir_dados.h"
 #include "ordena_lista.h"
@@ -29,8 +30,8 @@ int main() {
 void limpaLista(LISTAENC **lista) {
     LISTAENC *aux = *lista;
     while (aux != NULL) {      // ponteiro auxiliar para percorrer a lista
-        *lista = aux->prox;     // aponta para o próximo registro da lista
-        free(aux);        // libera memória
-        aux = *lista;           // reposiciona ponteiro auxiliar no início
+        *lista = aux->prox;     // aponta para o prï¿½ximo registro da lista
+        free(aux);        // libera memï¿½ria
+        aux = *lista;           // reposiciona ponteiro auxiliar no inï¿½cio
     } // fim if( aux == NULL )
 }
