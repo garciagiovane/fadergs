@@ -44,7 +44,7 @@ void ordenar(LISTAENC **lista) {
 
 void imprime(LISTAENC *lista){
 	while (lista != NULL){
-		printf("%s, %s, %s\n", lista->info.cor, lista->info.tamanho, lista->info.nome_dono);
+		printf("%s %s %s\n", lista->info.cor, lista->info.tamanho, lista->info.nome_dono);
 		lista = lista->prox;
 	}
 }
