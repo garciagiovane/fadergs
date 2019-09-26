@@ -14,16 +14,18 @@ int main() {
     do {
         fflush(stdin);  //limpa buffer
         scanf("%d", &quantidadeRegistros);  //le o numero de registros a serem incluidos
+        
+        /*if(quantidadeRegistros == 0)
+        	exit(1);*/
 
         int i;
         for (i = 0; i < quantidadeRegistros; ++i) { //executa o registro conforme  quantidade informada pelo usuario
             incluir(&lista);    //executa rotina para incluir na lista
         }
-        ordenar(lista); //executa rotina para ordenar a lista
+        
+        ordenar(&lista); //executa rotina para ordenar a lista        
         limpaLista(&lista);   //lista recebe mull para limpar os registros
-    } while (quantidadeRegistros > 0 &&
-             quantidadeRegistros <= 60); //executa a quantidade de vezes informada pelo usuario
-
+    } while (quantidadeRegistros > 0 && quantidadeRegistros <= 60); //executa a quantidade de vezes informada pelo usuario
     return 0;
 }
 

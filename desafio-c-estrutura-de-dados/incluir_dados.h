@@ -4,7 +4,7 @@ void incluir(LISTAENC **lista) {    //recebe um ponteiro (endereco na memoria) c
     LISTAENC *no = (LISTAENC *) malloc(sizeof(LISTAENC)); // recebe novo espaço em memoria
     if (no != NULL) {                                 // verifica se tem espaço
         insere_registro(no);                     // le os dados do registro
-        no->prox = *lista;                           // no->prox aponta para o primeiro ou para NULL
+		no->prox = *lista;                           // no->prox aponta para o primeiro ou para NULL
         *lista = no;                                 // lista agora aponta para o novo registro
     } // fim if( no != NULL )
     else
