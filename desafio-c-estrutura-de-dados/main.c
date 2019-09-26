@@ -15,7 +15,7 @@ int main() {
         fflush(stdin);  //limpa buffer
         scanf("%d", &quantidadeRegistros);  //le o numero de registros a serem incluidos
         
-        if(quantidadeRegistros == 0)
+        if(quantidadeRegistros == 0)	//se a quantidade de registros for zero, encerra o programa
         	exit(1);
 
         int i;
@@ -30,7 +30,7 @@ int main() {
 }
 
 void limpaLista(LISTAENC **lista) {
-    LISTAENC *aux = *lista;
+    LISTAENC *aux = *lista;	//recebe o endereço da lista
     while (aux != NULL) {      // ponteiro auxiliar para percorrer a lista
         *lista = aux->prox;     // aponta para o prï¿½ximo registro da lista
         free(aux);        // libera memï¿½ria

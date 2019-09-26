@@ -1,10 +1,10 @@
-void imprime(LISTAENC *lista);
+void imprime(LISTAENC *lista);	//declaracao da funcao
 
 void ordenar(LISTAENC **lista) {
-    if (*lista == NULL)
+    if (*lista == NULL)	//verifica se lista esta vazia
         printf("lista vazia\n");
     else {
-        if ((*lista)->prox == NULL)
+        if ((*lista)->prox == NULL)	//verifica se a existe o proximo item
             printf("apenas um registro");
         else {
             INFORMACAO aux; //auxiliar para troca de dados
@@ -33,18 +33,18 @@ void ordenar(LISTAENC **lista) {
                     proximo = proximo->prox;	//incrementa o próximo, para andar a lista e verificar se ainda existem registros
                 }
                 atual = atual->prox;	//atual recebe o próximo para voltar a percorrer a lista
-                proximo = atual->prox;	//incrementa um próximo para percorrer a lista
+                proximo = atual->prox;	//incrementa um próximo para percorrer a lista e comparar
             }
         }
     }
     
-    imprime((*lista));
+    imprime(*lista);	//imprime a lista
     printf("\n");
 }
 
-void imprime(LISTAENC *lista){
-	while (lista != NULL){
-		printf("%s %s %s\n", lista->info.cor, lista->info.tamanho, lista->info.nome_dono);
-		lista = lista->prox;
+void imprime(LISTAENC *lista){	//função para imprimir a lista
+	while (lista != NULL){	//roda enquanto a lista não estiver vazia
+		printf("%s %s %s\n", lista->info.cor, lista->info.tamanho, lista->info.nome_dono);	//printa os dados
+		lista = lista->prox;	//aponta para o proximo, para percorrer a lista
 	}
 }
