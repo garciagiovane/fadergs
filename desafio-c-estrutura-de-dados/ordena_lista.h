@@ -1,3 +1,5 @@
+void imprime(LISTAENC *lista);
+
 void ordenar(LISTAENC **lista) {
     if (*lista == NULL)
         printf("lista vazia\n");
@@ -42,7 +44,7 @@ void ordenar(LISTAENC **lista) {
 
 void imprime(LISTAENC *lista){
 	while (lista != NULL){
-		printf("Cor: %s, tamanho: %s, nome: %s\n", lista->info.cor, lista->info.tamanho, lista->info.nome_dono);
+		printf("%s, %s, %s\n", lista->info.cor, lista->info.tamanho, lista->info.nome_dono);
 		lista = lista->prox;
 	}
 }

@@ -15,8 +15,8 @@ int main() {
         fflush(stdin);  //limpa buffer
         scanf("%d", &quantidadeRegistros);  //le o numero de registros a serem incluidos
         
-        /*if(quantidadeRegistros == 0)
-        	exit(1);*/
+        if(quantidadeRegistros == 0)
+        	exit(1);
 
         int i;
         for (i = 0; i < quantidadeRegistros; ++i) { //executa o registro conforme  quantidade informada pelo usuario
