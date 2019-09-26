@@ -1,5 +1,3 @@
-#define N_MAX 60 //tamanho do vetor info
-
 typedef struct {    //estrutura do tipo INFORMACAO
     char nome_dono[30]; //variavel que armazenara o nome do dono da camiseta
     char cor[15];   //variavel que armazenara a cor da camiseta
