@@ -1,0 +1,3 @@
+Calor ou Frio? 
+4 = Calor
+5 = Frio

@@ -1,0 +1,3 @@
+Latino ou Outro?
+14 = Latino
+15 = Americano

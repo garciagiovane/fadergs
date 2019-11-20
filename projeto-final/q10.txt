@@ -1,0 +1,3 @@
+Casado ou Solteiro
+20 = Casado
+21 = Solteiro

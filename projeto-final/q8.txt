@@ -1,0 +1,3 @@
+Pousada ou Resort?
+16 = Pousada 
+17 = Resort

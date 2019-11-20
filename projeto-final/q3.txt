@@ -1,0 +1,3 @@
+Europa ou América?
+6 = Europa
+7 = América

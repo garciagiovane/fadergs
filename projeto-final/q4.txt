@@ -1,0 +1,3 @@
+Praia ou Cidade?
+8 =  Praia
+9 =  Cidade

@@ -1,0 +1,3 @@
+Loja ou Restaurante?
+22 = Loja
+23 = Restaurante
