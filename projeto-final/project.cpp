@@ -11,11 +11,15 @@ char* concatena(int n);
 void entrada_dados( ARVORE* aux );
 int insere( ARVORE** r,int codigo);
 void imprime_ARVORE( ARVORE* aux );
+void abrir_arquivo(char arquivo[20], FILE *question, char text[100]);
 
 int main (void) {
 	setlocale(LC_ALL, "portuguese");
 	ARVORE *r;			//ARVORE *r
 	int codigo=1,res, viagem;		//código inicia em 2 para a pergunta; 
+	
+	FILE *question;
+	char text[100];
 	
 	cria_ARVORE(&r);
 	
@@ -65,6 +69,30 @@ int main (void) {
 				case 13:
 					codigo = 13;
 					break;
+				case 14:
+					codigo = 14;
+					break;
+				case 15:
+					codigo = 15;
+					break;
+				case 16:
+					codigo = 16;
+					break;
+				case 17:
+					codigo = 17;
+					break;
+				case 20:
+					codigo = 20;
+					break;
+				case 21:
+					codigo = 21;
+					break;
+				case 22:
+					codigo = 22;
+					break;
+				case 23:
+					codigo = 23;
+					break;
 				default:
 					printf("Resposta inválida");
 					imprime_ARVORE(r);
@@ -76,103 +104,83 @@ int main (void) {
 }	
 
 FILE open_file(int cod) {
-	FILE *question;	
+	FILE *question;
 	char text[100];
 	switch(cod) {
 		case 1:
-			question = fopen("q1.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+			abrir_arquivo("q1.txt", question, text);
 			break;
 		case 2:
-			question = fopen("q2.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+			abrir_arquivo("q2.txt", question, text);
 			break;
 		case 3:
-			question = fopen("q3.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+			abrir_arquivo("q3.txt", question, text);
 			break;
 		case 4:
-			question = fopen("q4.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+			abrir_arquivo("q4.txt", question, text);
 			break;
 		case 5:
-			question = fopen("q5.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+			abrir_arquivo("q5.txt", question, text);
 			break;
 		case 6:
-			question = fopen("q6.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+			abrir_arquivo("q6.txt", question, text);
 			break;
 		case 7:
-			question = fopen("q7.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+			abrir_arquivo("q7.txt", question, text);
 			break;
 		case 8:
-			question = fopen("q8.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+			abrir_arquivo("q8.txt", question, text);
 			break;
 		case 9:
-			question = fopen("q9.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+			abrir_arquivo("q9.txt", question, text);
 			break;
 		case 10:
-			question = fopen("q10.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+			abrir_arquivo("q10.txt", question, text);
 			break;
 		case 11:
-			question = fopen("q11.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+			abrir_arquivo("q11.txt", question, text);
 			break;
 	    case 12:
-			question = fopen("q12.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
+	    	abrir_arquivo("q12.txt", question, text);
 			break;
 		case 13:
-			question = fopen("q13.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
-			break;
-		 case 14:
-			question = fopen("q14.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
-			break;
-		 case 15:
-			question = fopen("q15.txt","r");
-			while(fgets(text,100,question)!=NULL)
-				printf("%s",text);
-			fclose(question);
-			break;
+			abrir_arquivo("q13.txt", question, text);
+		break;
+		case 14:
+			abrir_arquivo("q14.txt", question, text);
+		break;
+		case 15:
+			abrir_arquivo("r15.txt", question, text);
+		break;
+		case 16:
+			abrir_arquivo("r16.txt", question, text);
+		break;
+		case 17:
+			abrir_arquivo("r17.txt", question, text);
+		break;
+		case 20:
+			abrir_arquivo("r20.txt", question, text);
+		break;
+		case 21:
+			abrir_arquivo("r21.txt", question, text);
+		break;
+		case 22:
+			abrir_arquivo("r22.txt", question, text);
+		break;
+		case 23:
+			abrir_arquivo("r23.txt", question, text);
+		break;
 		default:
 			printf("Saindo");
 			break;
 	}
+}
+
+void abrir_arquivo(char arquivo[20], FILE *question, char text[100]) {
+	question = fopen(arquivo,"r");
+	while(fgets(text,100,question)!=NULL)
+		printf("%s",text);
+	fclose(question);
 }
 
 void cria_ARVORE( ARVORE** r ) {
