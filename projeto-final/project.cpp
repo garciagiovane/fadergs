@@ -12,6 +12,7 @@ void entrada_dados( ARVORE* aux );
 int insere( ARVORE** r,int codigo);
 void imprime_ARVORE( ARVORE* aux );
 void abrir_arquivo(char arquivo[20], FILE *question, char text[100]);
+void busca_recursivo( ARVORE *p, char str[] );
 
 int main (void) {
 	setlocale(LC_ALL, "portuguese");
@@ -23,14 +24,111 @@ int main (void) {
 	
 	cria_ARVORE(&r);
 	
+	int continua = 1;
+	while(1) {
+		int opcao;
+		printf("O que você quer fazer?\n1 - Recomendação de destino \n2 - Procurar cidade\n0 - Sair\n");
+		fflush(stdin);
+		scanf("%d", &opcao);
+		
+		switch(opcao) {
+			case 1:
+				do {
+					res = insere(&r,codigo); 	//res recebe o retorno da função insere (i)
+			switch(res)	{				//dependendo do retorno da função insere, a próxima pergunta da árvore é puxada, conforme a escolha indicada
+				case 2:
+					codigo = 2;
+					break;
+				case 3:
+					codigo = 3;
+					break;
+				case 4:
+					codigo = 4;
+					break;
+				case 5:
+					codigo = 5;
+					break;
+				case 6:
+					codigo = 6;
+					break;
+				case 7:
+					codigo = 7;
+					break;
+				case 8:
+					codigo = 8;
+					break;
+				case 9:
+					codigo = 9;
+					break;
+				case 10:
+					codigo = 10;
+					break;
+				case 11:
+					codigo = 11;
+					break;
+				case 12:
+					codigo = 12;
+					break;
+				case 13:
+					codigo = 13;
+					break;
+				case 14:
+					codigo = 14;
+					break;
+				case 15:
+					codigo = 15;
+					break;
+				case 16:
+					codigo = 16;
+					break;
+				case 17:
+					codigo = 17;
+					break;
+				case 20:
+					codigo = 20;
+					break;
+				case 21:
+					codigo = 21;
+					break;
+				case 22:
+					codigo = 22;
+					break;
+				case 23:
+					codigo = 23;
+					break;
+				default:
+					printf("Resposta inválida\n");
+					imprime_ARVORE(r);
+					break;					
+				}
+				
+				} while (res != 0);
+				
+			break;
+			case 2:
+				char resposta[50];
+				printf("Digite o nome do lugar\n");
+				fflush(stdin);
+				scanf("%s", &resposta);
+				busca_recursivo(r, resposta);
+				
+			break;
+			case 0:
+				return 0;
+			break;
+		}
+		
+	}
+	
 	printf("Você quer viajar?\n 2 - 'Sim!'\n 0 - 'Nao'");
+	fflush(stdin);
 	scanf("%i", &viagem);
 	
 	if(viagem == 0)
 		printf("Adeus! Estamos à sua disposição!\n");
 	else
 	  if(viagem == 2)	
-		while(codigo != 0) {	//enquanto for diferente de 0 continua o laço
+		while(codigo != 0) {		//enquanto for diferente de 0 continua o laço
 			res = insere(&r,codigo); 	//res recebe o retorno da função insere (i)
 			switch(res)	{				//dependendo do retorno da função insere, a próxima pergunta da árvore é puxada, conforme a escolha indicada
 				case 2:
@@ -94,7 +192,7 @@ int main (void) {
 					codigo = 23;
 					break;
 				default:
-					printf("Resposta inválida");
+					printf("Resposta inválida\n");
 					imprime_ARVORE(r);
 					break;					
 				}
@@ -102,6 +200,22 @@ int main (void) {
 			printf("Volte mais tarde!\n");	
 		}
 }	
+
+void busca_recursivo( ARVORE *p, char str[] ){
+   int x = strcmp(str,p->info.word );
+   if( p == NULL || (p->subd == NULL && p->sube == NULL)) {
+   	printf("Não encontrado!\n");
+   } else
+   		if( x == 0 )
+       {
+       	printf("\nResultados encontrados: %s\n", p->info.word);
+	   }
+	   else
+	   	 if(x != 0)
+           busca_recursivo( p->sube, str ); 
+       	else
+           busca_recursivo( p->subd, str ); 
+}
 
 FILE open_file(int cod) {
 	FILE *question;
